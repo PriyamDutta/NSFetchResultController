@@ -12,7 +12,13 @@ import UIKit
 
 @objc(PersonInfo)
 public class PersonInfo: NSManagedObject {
-
+    
+    
+    /// Insertion Data into Database and saving
+    ///
+    /// - Parameters:
+    ///   - name: name of the person
+    ///   - place: place belong to
     class func insertPersonDetails(name: String?, place: String?) {
         let enity = NSEntityDescription.insertNewObject(forEntityName: "PersonInfo", into: manageObjectContext) as! PersonInfo
         enity.name = name

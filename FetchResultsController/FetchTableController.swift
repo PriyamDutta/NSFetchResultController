@@ -15,7 +15,10 @@ class FetchTableController: UITableView, NSFetchedResultsControllerDelegate, UIT
     
     private var sortDescriptorPath: String?
     private var canCommitCellEditingStyle: Bool? = true
+    
+    /// Closure that will return UITableViewCell along with its properties set.
     var cell:((_ tableview: UITableView, _ indexPath: NSIndexPath, _ dataSource: AnyObject) -> (UITableViewCell))?
+    
     private var fetchResultController: NSFetchedResultsController<NSFetchRequestResult>?
     private var entity: String? {
         didSet {

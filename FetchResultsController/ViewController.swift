@@ -20,6 +20,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        /* Initializing and configuring NSFetchResultController with enitity and sort descriptor.
+         */
         fetchTable.configureFetchResultsController(entity: "PersonInfo", sortDescriptorKeyPath: "name")
         fetchTable.cell = {(tableView, indexPath, data) in
             
@@ -53,6 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         (primaryCell?.contentView.viewWithTag(2) as! UILabel).text = "from " + descriptionArray[indexPath.row]
         return primaryCell!
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         PersonInfo.insertPersonDetails(name: titleArray[indexPath.row], place: descriptionArray[indexPath.row])
