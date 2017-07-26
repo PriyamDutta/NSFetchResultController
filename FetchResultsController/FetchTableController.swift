@@ -84,6 +84,10 @@ class FetchTableController: UITableView, NSFetchedResultsControllerDelegate, UIT
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     //MARK:- NSFetchedResultsControllerDelegate
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         debugPrint("Section: \(sectionInfo), at Index: \(sectionIndex)")
@@ -109,10 +113,6 @@ class FetchTableController: UITableView, NSFetchedResultsControllerDelegate, UIT
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.endUpdates()
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
 
 }
